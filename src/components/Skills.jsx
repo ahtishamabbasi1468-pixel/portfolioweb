@@ -2,30 +2,31 @@ import React from 'react';
 import './Skills.css';
 
 const Skills = () => {
+    // FIX: Array structure ko simple single array [] banaya hai, double [[]] nahi.
     const skillCategories = [
         {
             title: "Programming Languages",
-            skills: ["Kotlin", "Java", "Python", "C++", "JavaScript", "SQL"]
+            skills: ["JavaScript", "C# (C-Sharp)", "SQL", "Python", "C++", "HTML5/CSS3"]
         },
         {
-            title: "Android Development",
-            skills: ["Android SDK", "Android Studio", "Gradle", "XML", "Material Design"]
+            title: "Frontend Development",
+            skills: ["ReactJS", "React Hooks", "State Management", "Bootstrap", "Responsive UI/UX"]
+        },
+        {
+            title: "Backend Development",
+            skills: ["ASP.NET Core Web API", "ASP.NET MVC", "Entity Framework", "Node.js"]
         },
         {
             title: "Architecture & Patterns",
-            skills: ["MVVM", "Clean Architecture", "Repository Pattern", "Dependency Injection"]
+            skills: ["MVC Architecture", "Repository Pattern", "Multi-Role Authentication", "RESTful APIs Design"]
         },
         {
-            title: "Libraries & Frameworks",
-            skills: ["Retrofit", "Glide", "Coroutines", "ViewModel", "Dagger/Hilt"]
+            title: "Databases & Storage",
+            skills: ["SQL Server (MSSQL)", "Entity Framework Core", "Local Storage", "Database Design"]
         },
         {
-            title: "Databases & Backend",
-            skills: ["SQLite", "Room Database", "Firebase"]
-        },
-        {
-            title: "Monetization & Tools",
-            skills: ["Google AdMob", "RESTful APIs", "GitHub", "Postman"]
+            title: "Tools & DevOps",
+            skills: ["Git & GitHub", "Visual Studio", "VS Code", "Postman", "IIS Server Configuration"]
         }
     ];
 

@@ -24,23 +24,36 @@
     -webkit-text-fill-color: transparent;
 }
 
+/* --- WHATSAPP BRAND BUTTON OPTIMIZATION --- */
+.direct-contact {
+    display: flex;
+    margin-top: 1rem;
+}
+
 .whatsapp-btn {
     display: inline-flex;
     align-items: center;
+    justify-content: center;
     gap: 0.8rem;
     background: #25D366;
     color: white;
-    padding: 1rem 2rem;
+    padding: 0.9rem 2rem;
     border-radius: 2rem;
     font-weight: 600;
-    transition: all 0.3s ease;
+    text-decoration: none; /* Line hatane ke liye */
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
-    margin-top: 1rem;
 }
 
 .whatsapp-btn:hover {
     transform: translateY(-3px);
     box-shadow: 0 8px 25px rgba(37, 211, 102, 0.5);
+    background: #20ba59; /* Thoda dark green premium look */
+}
+
+.whatsapp-btn svg {
+    display: block;
+    fill: currentColor; /* Logo ke andar ka hissa fill karne ke liye */
 }
 
 .contact-form {
@@ -83,6 +96,7 @@
     background: rgba(0, 0, 0, 0.4);
 }
 
+/* --- BUTTON STATES OPTIMIZATION --- */
 .submit-btn {
     display: flex;
     align-items: center;
@@ -112,22 +126,21 @@
 }
 
 .submit-btn.success {
-    background: linear-gradient(135deg, #10b981, #059669);
+    background: linear-gradient(135deg, #10b981, #059669) !important;
     cursor: not-allowed;
+    box-shadow: 0 4px 15px rgba(16, 185, 129, 0.4);
+}
+
+/* New: Fallback error design agar API crash ho */
+.submit-btn.error {
+    background: linear-gradient(135deg, #ef4444, #dc2626) !important;
+    box-shadow: 0 4px 15px rgba(239, 68, 68, 0.4);
 }
 
 @keyframes pulse {
-    0% {
-        opacity: 0.7;
-    }
-
-    50% {
-        opacity: 0.9;
-    }
-
-    100% {
-        opacity: 0.7;
-    }
+    0% { opacity: 0.7; }
+    50% { opacity: 0.9; }
+    100% { opacity: 0.7; }
 }
 
 .footer {
@@ -142,8 +155,16 @@
     margin-top: 0.5rem;
 }
 
+/* RESPONSIVE DESIGN */
 @media (max-width: 900px) {
     .contact-container {
         grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    .contact-info {
+        order: 2; /* Mobile standard: form pehle, info niche */
+    }
+    .contact-form {
+        order: 1;
     }
 }

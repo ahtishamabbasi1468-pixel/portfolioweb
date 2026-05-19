@@ -3,52 +3,37 @@ import { ExternalLink, Github } from 'lucide-react';
 import './Projects.css';
 
 const Projects = () => {
+    // FIX: Extra double brackets [[ ]] hata kar single array [ ] kar diya hai
     const projects = [
         {
             id: 1,
-            title: 'Period Calendar & Cycle Tracker App',
-            description: 'A women’s health period tracking and cycle prediction app with a clean, intuitive UI. Features offline-first data storage and calendar-based visualization for cycle history.',
-            tags: ['Kotlin', 'Android SDK', 'Room DB', 'MVVM'],
+            title: 'Repair Your Car (Intelligent Vehicle Assistance)',
+            description: 'A comprehensive full-stack platform connecting users with vehicle experts. Features real-time multi-role logic (Admin, Expert, User), dynamic troubleshooting steps with image/video rendering, and user feedback/rating modules.',
+            tags: ['ReactJS', 'ASP.NET Web API', 'SQL Server', 'Entity Framework'],
             link: '#',
             github: '#'
         },
         {
             id: 2,
-            title: 'Custom Android Launcher',
-            description: 'A feature-rich Android launcher with customizable home screens, gestures, and themes. Includes advanced widget management and a theme engine.',
-            tags: ['Kotlin', 'Android SDK', 'SQLite', 'Material Design'],
+            title: 'Gym Management System',
+            description: 'A robust web application designed to streamline gym operations. Includes member onboarding, membership plan subscription tracking, attendance management, and an interactive dashboard for financial reports and analytics.',
+            tags: ['ReactJS', 'ASP.NET', 'SQL Server', 'CSS Transitions'],
             link: '#',
             github: '#'
         },
         {
             id: 3,
-            title: 'Islamic Dua & Quran App',
-            description: 'A complete Islamic app featuring Quran, duas, dhikr, and prayer timings with multiple calculation methods and Qibla direction.',
-            tags: ['Java', 'Android SDK', 'SQLite', 'Location APIs'],
+            title: 'Micro-Task Earning Platform',
+            description: 'A simple and intuitive earning website where users can perform daily micro-tasks, view video tutorials, and track points. Features a clean, secure dashboard for balance management and real-time ledger records.',
+            tags: ['ReactJS', 'Node.js', 'RESTful APIs', 'Bootstrap'],
             link: '#',
             github: '#'
         },
         {
             id: 4,
-            title: 'GPS Map Camera',
-            description: 'An advanced camera app embedding real-time GPS coordinates and addresses on photos using Google Maps API and reverse geocoding.',
-            tags: ['Kotlin', 'Camera2 API', 'Location Services'],
-            link: '#',
-            github: '#'
-        },
-        {
-            id: 5,
-            title: 'Medical Dictionary (Offline)',
-            description: 'An offline medical dictionary with 1000+ terms, fast full-text search, voice search, and text-to-speech support.',
-            tags: ['Kotlin', 'Room DB', 'FTS'],
-            link: '#',
-            github: '#'
-        },
-        {
-            id: 6,
-            title: 'Learn Ethical Hacking App',
-            description: 'A cybersecurity learning application with modular learning paths, progress tracking, achievements, and secure data storage.',
-            tags: ['Kotlin', 'Android SDK', 'SQLite'],
+            title: 'Local Connect App Platform',
+            description: 'A responsive full-stack platform focused on bridging the gap between local service providers and community users, highlighting professional mobile-first grid layouts and optimized query performance.',
+            tags: ['ReactJS', 'ASP.NET', 'RESTful APIs', 'SQL Server'],
             link: '#',
             github: '#'
         }
