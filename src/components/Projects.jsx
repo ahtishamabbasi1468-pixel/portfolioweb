@@ -36,6 +36,14 @@ const Projects = () => {
             tags: ['ReactJS', 'ASP.NET', 'RESTful APIs', 'SQL Server'],
             link: '#',
             github: '#'
+        },
+        {
+            id: 5,
+            title: 'Professional E-Commerce Web Application',
+            description: 'A comprehensive full-stack e-commerce solution featuring secure user authentication, dynamic product catalog, real-time cart management, and an integrated Admin Dashboard for monitoring revenue, managing inventory, and processing customer orders.',
+            tags: ['ReactJS', 'ASP.NET Web API', 'MS SQL Server', 'RESTful APIs', 'State Management'],
+            link: '#',
+            github: '#'
         }
     ];
 
