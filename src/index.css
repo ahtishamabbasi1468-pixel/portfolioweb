@@ -12,10 +12,28 @@
   --glass-bg: rgba(7, 7, 10, 0.7);
 }
 
+/* Light mode overrides — toggled via data-theme="light" on <html> */
+:root[data-theme='light'] {
+  --bg-main: #f7f7fb;
+  --bg-card: rgba(15, 23, 42, 0.03);
+  --bg-card-hover: rgba(15, 23, 42, 0.07);
+  --text-main: #14121f;
+  --text-muted: #52526b;
+  --accent-primary: #7c3aed;
+  --accent-secondary: #0891b2;
+  --border-color: rgba(15, 23, 42, 0.1);
+  --glass-bg: rgba(247, 247, 251, 0.75);
+}
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 90px; /* offset for the fixed navbar when jumping to a section */
 }
 
 body {
@@ -24,7 +42,7 @@ body {
   color: var(--text-main);
   line-height: 1.6;
   overflow-x: hidden;
-  scroll-behavior: smooth;
+  transition: background-color 0.4s ease, color 0.4s ease;
 }
 
 h1, h2, h3, h4 {
@@ -57,6 +75,16 @@ a {
   text-align: center;
 }
 
+/* Utility classes referenced across components — kept here so they always
+   resolve through the current theme's CSS variables. */
+.text-muted {
+  color: var(--text-muted);
+}
+
+.mb-4 {
+  margin-bottom: 1.5rem;
+}
+
 .glass-card {
   background: var(--bg-card);
   border: 1px solid var(--border-color);
@@ -78,6 +106,26 @@ a {
   to { opacity: 1; transform: translateY(0); }
 }
 
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(28px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInLeft {
+  from { opacity: 0; transform: translateX(-24px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes fadeInRight {
+  from { opacity: 0; transform: translateX(24px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(0.85); }
+  to { opacity: 1; transform: scale(1); }
+}
+
 @keyframes pulse-glow {
   0% { box-shadow: 0 0 20px rgba(139, 92, 246, 0.5); }
   50% { box-shadow: 0 0 40px rgba(6, 182, 212, 0.6); }
@@ -90,12 +138,149 @@ a {
   100% { transform: translateY(0px); }
 }
 
+@keyframes blobFloat {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(30px, -40px) scale(1.1); }
+  66% { transform: translate(-25px, 25px) scale(0.95); }
+}
+
+@keyframes shine {
+  0% { transform: translateX(-120%) skewX(-15deg); }
+  100% { transform: translateX(220%) skewX(-15deg); }
+}
+
+@keyframes bounceArrow {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(6px); }
+}
+
 .animate-fade-in {
   animation: fadeIn 1s cubic-bezier(0.4, 0, 0.2, 1) forwards;
 }
 
 .animate-float {
   animation: float 6s ease-in-out infinite;
+}
+
+/* ══════════════════════════════════════════
+   Scroll-triggered reveal (used by <Reveal>)
+   ══════════════════════════════════════════ */
+.reveal {
+  opacity: 0;
+  transform: translateY(45px);
+  transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1),
+              transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.reveal-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Staggered entrance for cards/items inside a revealed section —
+   each direct grid/list item animates in with an increasing delay. */
+.reveal .skill-card,
+.reveal .project-card,
+.reveal .timeline-item,
+.reveal .job-description li,
+.reveal .contact-info,
+.reveal .contact-form {
+  opacity: 0;
+}
+
+.reveal-visible .skill-card,
+.reveal-visible .project-card,
+.reveal-visible .timeline-item,
+.reveal-visible .job-description li,
+.reveal-visible .contact-info,
+.reveal-visible .contact-form {
+  animation: fadeInUp 0.7s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+.reveal-visible .contact-info { animation: fadeInLeft 0.7s cubic-bezier(0.4, 0, 0.2, 1) forwards; }
+.reveal-visible .contact-form { animation: fadeInRight 0.7s cubic-bezier(0.4, 0, 0.2, 1) forwards; animation-delay: 0.15s; }
+
+.reveal-visible .skill-card:nth-child(1),
+.reveal-visible .project-card:nth-child(1) { animation-delay: 0.05s; }
+.reveal-visible .skill-card:nth-child(2),
+.reveal-visible .project-card:nth-child(2) { animation-delay: 0.15s; }
+.reveal-visible .skill-card:nth-child(3),
+.reveal-visible .project-card:nth-child(3) { animation-delay: 0.25s; }
+.reveal-visible .skill-card:nth-child(4),
+.reveal-visible .project-card:nth-child(4) { animation-delay: 0.35s; }
+.reveal-visible .skill-card:nth-child(5),
+.reveal-visible .project-card:nth-child(5) { animation-delay: 0.45s; }
+.reveal-visible .skill-card:nth-child(6),
+.reveal-visible .project-card:nth-child(6) { animation-delay: 0.55s; }
+
+.reveal-visible .job-description li:nth-child(1) { animation-delay: 0.05s; }
+.reveal-visible .job-description li:nth-child(2) { animation-delay: 0.1s; }
+.reveal-visible .job-description li:nth-child(3) { animation-delay: 0.15s; }
+.reveal-visible .job-description li:nth-child(4) { animation-delay: 0.2s; }
+.reveal-visible .job-description li:nth-child(5) { animation-delay: 0.25s; }
+.reveal-visible .job-description li:nth-child(6) { animation-delay: 0.3s; }
+.reveal-visible .job-description li:nth-child(7) { animation-delay: 0.35s; }
+.reveal-visible .job-description li:nth-child(8) { animation-delay: 0.4s; }
+
+/* Skill tags pop in slightly after their card appears */
+.reveal-visible .skill-tag,
+.reveal-visible .tag {
+  animation: scaleIn 0.4s ease forwards;
+  animation-delay: 0.3s;
+  opacity: 0;
+}
+
+/* Hero entrance — staggered children driven from Profile.jsx (.stagger-item) */
+.stagger-item {
+  opacity: 0;
+  animation: fadeInUp 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+.stagger-item:nth-child(1) { animation-delay: 0.05s; }
+.stagger-item:nth-child(2) { animation-delay: 0.2s; }
+.stagger-item:nth-child(3) { animation-delay: 0.35s; }
+.stagger-item:nth-child(4) { animation-delay: 0.5s; }
+.stagger-item:nth-child(5) { animation-delay: 0.65s; }
+
+/* Reusable shine sweep for primary buttons */
+.shine-hover {
+  position: relative;
+  overflow: hidden;
+}
+.shine-hover::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 40%;
+  height: 100%;
+  background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.35), transparent);
+  transform: translateX(-120%) skewX(-15deg);
+  pointer-events: none;
+}
+.shine-hover:hover::after {
+  animation: shine 0.9s ease;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Typing animation cursor (used in the hero role text) */
+.typing-cursor {
+  display: inline-block;
+  margin-left: 2px;
+  color: var(--accent-secondary);
+  animation: blink-cursor 0.9s step-end infinite;
+}
+
+@keyframes blink-cursor {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
 }
 
 /* Custom Scrollbar */

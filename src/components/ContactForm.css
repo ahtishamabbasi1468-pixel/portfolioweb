@@ -1,170 +1,273 @@
+/* Contact Section Base */
 .contact-section {
-    padding-top: 6rem;
-    padding-bottom: 2rem;
+    padding-top: 8rem;
+    padding-bottom: 4rem;
+    position: relative;
+    overflow: hidden;
+    text-align: center;
 }
 
+/* Luxury Responsive Grid Layout */
 .contact-container {
     display: grid;
-    grid-template-columns: 1fr 1.5fr;
-    gap: 3rem;
-    margin-top: 3rem;
+    grid-template-columns: 1fr 1.35fr;
+    gap: 4rem;
+    margin-top: 4rem;
+    align-items: stretch;
 }
 
+/* Info Side Glass Card */
 .contact-info {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-between;
+    padding: 3rem;
+    border-radius: 1.5rem;
+    background: var(--bg-card);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid var(--border-color);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275),
+                background-color 0.4s ease, border-color 0.4s ease;
+}
+
+.contact-info:hover {
+    transform: translateY(-5px);
+    border-color: rgba(139, 92, 246, 0.35);
+    box-shadow: 0 30px 60px rgba(139, 92, 246, 0.12);
 }
 
 .contact-info h3 {
-    font-size: 2rem;
-    margin-bottom: 1rem;
-    background: linear-gradient(135deg, var(--text-main), var(--text-muted));
+    font-size: 2.4rem;
+    line-height: 1.3;
+    margin-bottom: 1.5rem;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+    background: linear-gradient(135deg, var(--text-main) 30%, var(--text-muted) 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
-/* --- WHATSAPP BRAND BUTTON OPTIMIZATION --- */
+/* Cyber-Premium Direct Contacts View */
 .direct-contact {
-    display: flex;
-    margin-top: 1rem;
+    margin-top: 2rem;
 }
 
+/* Ultra-Premium Direct WhatsApp Link */
 .whatsapp-btn {
     display: inline-flex;
     align-items: center;
-    justify-content: center;
-    gap: 0.8rem;
-    background: #25D366;
-    color: white;
-    padding: 0.9rem 2rem;
-    border-radius: 2rem;
-    font-weight: 600;
-    text-decoration: none; /* Line hatane ke liye */
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
+    gap: 1rem;
+    background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+    color: white !important;
+    padding: 1.1rem 2.4rem;
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 1.05rem;
+    letter-spacing: 0.3px;
+    text-decoration: none;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 8px 30px rgba(37, 211, 102, 0.35);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
 .whatsapp-btn:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 8px 25px rgba(37, 211, 102, 0.5);
-    background: #20ba59; /* Thoda dark green premium look */
+    transform: translateY(-4px) scale(1.02);
+    box-shadow: 0 15px 40px rgba(37, 211, 102, 0.55);
+    background: linear-gradient(135deg, #2ae871 0%, #149f8f 100%);
 }
 
-.whatsapp-btn svg {
-    display: block;
-    fill: currentColor; /* Logo ke andar ka hissa fill karne ke liye */
+.whatsapp-btn:active {
+    transform: translateY(-1px);
 }
 
+/* Aggressive Glowing Interactive Form Card */
 .contact-form {
     display: flex;
     flex-direction: column;
-    gap: 1.5rem;
-    background: var(--bg-card);
+    gap: 2rem;
+    padding: 3.5rem;
+    border-radius: 1.5rem;
+    background: linear-gradient(135deg, var(--bg-card) 0%, var(--bg-card-hover) 100%);
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
+    border: 1px solid var(--border-color);
+    box-shadow: 0 25px 55px rgba(0, 0, 0, 0.2);
+    position: relative;
+    transition: border-color 0.3s ease, background-color 0.4s ease;
+}
+
+/* Neon Focus Effect on Form Focus */
+.contact-form:focus-within {
+    border-color: rgba(139, 92, 246, 0.3);
 }
 
 .form-group {
     display: flex;
     flex-direction: column;
-    gap: 0.5rem;
+    gap: 0.7rem;
 }
 
 .form-group label {
-    font-size: 0.9rem;
-    font-weight: 600;
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
     color: var(--text-muted);
-    margin-left: 0.5rem;
+    margin-left: 0.3rem;
+    transition: color 0.3s ease;
 }
 
+.contact-form :focus-within label {
+    color: var(--accent-primary);
+}
+
+/* Dark Stealth Input Styling */
 .form-group input,
 .form-group textarea {
-    background: rgba(0, 0, 0, 0.2);
+    background: var(--bg-card) !important;
     border: 1px solid var(--border-color);
-    padding: 1rem;
-    border-radius: 0.8rem;
-    color: var(--text-main);
+    padding: 1.2rem;
+    border-radius: 1rem;
+    color: var(--text-main) !important;
     font-family: inherit;
-    font-size: 1rem;
-    transition: all 0.3s ease;
+    font-size: 1.05rem;
+    font-weight: 500;
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.15);
 }
 
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+    color: var(--text-muted);
+    opacity: 0.8;
+}
+
+/* Hyper Wave Neon Focus State */
 .form-group input:focus,
 .form-group textarea:focus {
     outline: none;
     border-color: var(--accent-primary);
-    box-shadow: 0 0 10px rgba(139, 92, 246, 0.2);
-    background: rgba(0, 0, 0, 0.4);
+    background: var(--bg-card-hover) !important;
+    box-shadow: 0 0 25px rgba(139, 92, 246, 0.25),
+                inset 0 1px 2px rgba(0, 0, 0, 0.1);
+    transform: scale(1.01);
 }
 
-/* --- BUTTON STATES OPTIMIZATION --- */
+/* Master Action Button Mechanics */
 .submit-btn {
-    display: flex;
+    display: inline-flex;
     align-items: center;
     justify-content: center;
-    gap: 0.5rem;
-    background: linear-gradient(135deg, var(--accent-secondary), var(--accent-primary));
+    gap: 0.8rem;
+    background: linear-gradient(135deg, var(--accent-secondary, #a78bfa), var(--accent-primary, #6d28d9));
     color: white;
     border: none;
-    padding: 1rem;
-    border-radius: 0.8rem;
-    font-size: 1.1rem;
-    font-weight: 600;
+    padding: 1.3rem;
+    border-radius: 1rem;
+    font-size: 1.15rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
     cursor: pointer;
-    transition: all 0.3s ease;
-    margin-top: 0.5rem;
+    box-shadow: 0 8px 25px rgba(139, 92, 246, 0.3);
+    transition: all 0.4s cubic-bezier(0.19, 1, 0.22, 1);
+    margin-top: 1rem;
+    position: relative;
+    overflow: hidden;
 }
 
 .submit-btn:hover:not(:disabled) {
-    transform: translateY(-2px);
-    box-shadow: 0 5px 20px rgba(139, 92, 246, 0.4);
+    transform: translateY(-3px);
+    box-shadow: 0 15px 35px rgba(139, 92, 246, 0.55);
+    filter: brightness(1.1);
 }
 
+.submit-btn:active:not(:disabled) {
+    transform: translateY(-1px);
+}
+
+/* Animated Sending State */
 .submit-btn.sending {
-    opacity: 0.7;
+    opacity: 0.8;
+    background: linear-gradient(135deg, #4b5563, #1f2937);
     cursor: not-allowed;
-    animation: pulse 1.5s infinite;
+    animation: pulse-glow 1.5s infinite;
 }
 
+/* Pure Emerald Success State */
 .submit-btn.success {
-    background: linear-gradient(135deg, #10b981, #059669) !important;
+    background: linear-gradient(135deg, #00F260 0%, #0575E6 100%) !important;
+    box-shadow: 0 8px 30px rgba(0, 242, 96, 0.4);
     cursor: not-allowed;
-    box-shadow: 0 4px 15px rgba(16, 185, 129, 0.4);
+    transform: none !important;
 }
 
-/* New: Fallback error design agar API crash ho */
+/* Violent Danger/Error State */
 .submit-btn.error {
-    background: linear-gradient(135deg, #ef4444, #dc2626) !important;
-    box-shadow: 0 4px 15px rgba(239, 68, 68, 0.4);
+    background: linear-gradient(135deg, #ff416c 0%, #ff4b2b 100%) !important;
+    box-shadow: 0 8px 30px rgba(255, 75, 43, 0.4);
+    animation: aggressive-shake 0.4s ease-in-out;
 }
 
-@keyframes pulse {
-    0% { opacity: 0.7; }
-    50% { opacity: 0.9; }
-    100% { opacity: 0.7; }
+/* Animations Logic Engine */
+@keyframes pulse-glow {
+    0% { transform: scale(1); opacity: 0.8; }
+    50% { transform: scale(0.99); opacity: 1; box-shadow: 0 0 20px rgba(255, 255, 255, 0.1); }
+    100% { transform: scale(1); opacity: 0.8; }
 }
 
+@keyframes aggressive-shake {
+    0%, 100% { transform: translateX(0); }
+    20%, 60% { transform: translateX(-6px); }
+    40%, 80% { transform: translateX(6px); }
+}
+
+/* Dynamic Footprint Footer */
 .footer {
-    margin-top: 6rem;
+    margin-top: 8rem;
     text-align: center;
     border-top: 1px solid var(--border-color);
-    padding-top: 2rem;
+    padding: 3rem 1rem;
 }
 
-.small {
-    font-size: 0.8rem;
-    margin-top: 0.5rem;
+.footer p {
+    font-size: 1rem;
+    letter-spacing: 0.3px;
 }
 
-/* RESPONSIVE DESIGN */
-@media (max-width: 900px) {
+.footer .small {
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--accent-primary) !important;
+    margin-top: 0.6rem;
+}
+
+/* Premium Responsive Queries */
+@media (max-width: 1024px) {
     .contact-container {
         grid-template-columns: 1fr;
-        gap: 2rem;
+        gap: 2.5rem;
     }
     .contact-info {
-        order: 2; /* Mobile standard: form pehle, info niche */
+        padding: 2.5rem;
     }
     .contact-form {
-        order: 1;
+        padding: 2.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .contact-info h3 {
+        font-size: 1.9rem;
+    }
+    .contact-form, .contact-info {
+        padding: 1.8rem;
+    }
+    .whatsapp-btn {
+        width: 100%;
+        justify-content: center;
     }
 }

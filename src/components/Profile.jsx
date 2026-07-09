@@ -1,14 +1,27 @@
 import React from 'react';
-import { Github, Linkedin, Mail, Smartphone } from 'lucide-react';
+import { Github, Linkedin, Mail, Smartphone, Download } from 'lucide-react';
+import useTypingEffect from '../hooks/useTypingEffect';
 import './Profile.css';
 
+const ROLES = [
+    'Fullstack Web Developer',
+    'React JS Developer',
+    'ASP.NET Core Developer',
+    'REST API Developer',
+];
+
 const Profile = () => {
+    const typedRole = useTypingEffect(ROLES, 90, 45, 1400);
+
     return (
         <section className="profile-section container animate-fade-in" id="profile">
             <div className="profile-content">
                 <h2 className="greeting">Hello, I'm</h2>
                 <h1 className="name gradient-text">Ahtisham Razzaq</h1>
-                <h3 className="role">Fullstack Web Developer</h3>
+                <h3 className="role">
+                    {typedRole}
+                    <span className="typing-cursor">|</span>
+                </h3>
                 <p className="bio text-muted">
                     Highly motivated Full-Stack Web Developer specializing in building scalable, user-focused web applications. Proficient in frontend development using ReactJS and modern JavaScript, paired with strong backend integration experience in ASP.NET and RESTful APIs. Adept at responsive UI design, efficient state management, and performance optimization. Passionate about writing clean, maintainable code to deliver high-performance digital solutions.
                 </p>
@@ -16,6 +29,9 @@ const Profile = () => {
                 <div className="social-links">
                     <a href="#contact" className="social-btn primary">
                         <Mail size={20} /> Contact Me
+                    </a>
+                    <a href="/resume.pdf" download="Ahtisham_Razzaq_Resume.pdf" className="social-btn secondary">
+                        <Download size={20} /> Download Resume
                     </a>
                     <a href="https://github.com/ahtishamabbasi1468-pixel" className="social-icon" target="_blank" rel="noreferrer">
                         <Github size={24} />
@@ -41,7 +57,7 @@ const Profile = () => {
                     </div>
                 </div>
                 <div className="floating-badge badge-1 glass-card">
-                    <span className="badge-icon">�</span> Web Developer     
+                    <span className="badge-icon">💻</span> Web Developer
                 </div>
                 <div className="floating-badge badge-2 glass-card">
                     <span className="badge-icon">⚡</span> React js, ASP.NET, RESTful APIs

@@ -26,6 +26,7 @@
     font-size: 2rem;
     color: var(--text-main);
     margin-bottom: 2rem;
+    min-height: 2.6rem;
 }
 
 .bio {
@@ -59,6 +60,19 @@
 .social-btn.primary:hover {
     transform: translateY(-2px);
     box-shadow: 0 8px 25px rgba(6, 182, 212, 0.5);
+}
+
+.social-btn.secondary {
+    background: var(--bg-card);
+    color: var(--text-main);
+    border: 1px solid var(--border-color);
+}
+
+.social-btn.secondary:hover {
+    transform: translateY(-2px);
+    border-color: var(--accent-secondary);
+    box-shadow: 0 8px 20px rgba(6, 182, 212, 0.25);
+    background: var(--bg-card-hover);
 }
 
 .social-icon {

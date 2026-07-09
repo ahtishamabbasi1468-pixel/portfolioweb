@@ -63,7 +63,7 @@
                                 href="https://wa.me/923110506636"
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="whatsapp-btn"
+                                className="whatsapp-btn shine-hover"
                             >
                                 <MessageCircle size={24} />
                                 Chat on WhatsApp
@@ -119,7 +119,7 @@
 
                         <button
                             type="submit"
-                            className={`submit-btn ${status === 'sending' ? 'sending' : ''} ${status === 'success' ? 'success' : ''}`}
+                            className={`submit-btn shine-hover ${status === 'sending' ? 'sending' : ''} ${status === 'success' ? 'success' : ''}`}
                             disabled={status === 'sending' || status === 'success'}
                         >
                             {status === 'sending' ? 'Sending...' : status === 'success' ? 'Message Sent!' : (
