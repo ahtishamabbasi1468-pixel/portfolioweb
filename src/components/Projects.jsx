@@ -20,7 +20,7 @@ const Projects = () => {
             tags: ['ReactJS', 'ASP.NET', 'SQL Server', 'CSS Transitions'],
             image: '/projects/gym-management.jpg',
             link: '',
-            github: 'https://github.com/ahtishamabbasi1468-pixel/Gym-Management-System.git'
+            github: 'https://github.com/ahtishamabbasi1468-pixel/Gym-Management'
         },
         {
             id: 3,
