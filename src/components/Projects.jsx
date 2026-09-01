@@ -9,7 +9,7 @@ const Projects = () => {
             title: 'Repair Your Car (Intelligent Vehicle Assistance)',
             description: 'A comprehensive full-stack platform connecting users with vehicle experts. Features real-time multi-role logic (Admin, Expert, User), dynamic troubleshooting steps with image/video rendering, and user feedback/rating modules.',
             tags: ['ReactJS', 'ASP.NET Web API', 'SQL Server', 'Entity Framework'],
-            image: '/projects/repair-your-car.jpg',
+            // image: '/projects/repair-your-car.jpg',
             link: '',
             github: 'https://github.com/ahtishamabbasi1468-pixel/Repair-your-car.git'
         },
@@ -18,7 +18,7 @@ const Projects = () => {
             title: 'Gym Management System',
             description: 'A robust web application designed to streamline gym operations. Includes member onboarding, membership plan subscription tracking, attendance management, and an interactive dashboard for financial reports and analytics.',
             tags: ['ReactJS', 'ASP.NET', 'SQL Server', 'CSS Transitions'],
-            image: '/projects/gym-management.jpg',
+            // image: '/projects/gym-management.jpg',
             link: '',
             github: 'https://github.com/ahtishamabbasi1468-pixel/Gym-Management'
         },
@@ -27,28 +27,38 @@ const Projects = () => {
             title: 'Micro-Task Earning Platform',
             description: 'A simple and intuitive earning website where users can perform daily micro-tasks, view video tutorials, and track points. Features a clean, secure dashboard for balance management and real-time ledger records.',
             tags: ['ReactJS', 'Node.js', 'RESTful APIs', 'Bootstrap'],
-            image: '/projects/micro-task-platform.jpg',
+            // image: '/projects/micro-task-platform.jpg',
             link: '',
             github: ''
         },
-        {
-            id: 4,
-            title: 'Local Connect App Platform',
-            description: 'A responsive full-stack platform focused on bridging the gap between local service providers and community users, highlighting professional mobile-first grid layouts and optimized query performance.',
-            tags: ['ReactJS', 'ASP.NET', 'RESTful APIs', 'SQL Server'],
-            image: '/projects/local-connect.jpg',
-            link: '',
-            github: ''
-        },
+        // {
+        //     id: 4,
+        //     title: 'Local Connect App Platform',
+        //     description: 'A responsive full-stack platform focused on bridging the gap between local service providers and community users, highlighting professional mobile-first grid layouts and optimized query performance.',
+        //     tags: ['ReactJS', 'ASP.NET', 'RESTful APIs', 'SQL Server'],
+        //     // image: '/projects/local-connect.jpg',
+        //     link: '',
+        //     github: ''
+        // },
         {
             id: 5,
             title: 'Professional E-Commerce Web Application',
             description: 'A comprehensive full-stack e-commerce solution featuring secure user authentication, dynamic product catalog, real-time cart management, and an integrated Admin Dashboard for monitoring revenue, managing inventory, and processing customer orders.',
             tags: ['ReactJS', 'ASP.NET Web API', 'MS SQL Server', 'RESTful APIs', 'State Management'],
-            image: '/projects/ecommerce-app.jpg',
+            // image: '/projects/ecommerce-app.jpg',
             link: '',
             github: 'https://github.com/ahtishamabbasi1468-pixel/e-commerce.git'
+        },
+        {
+            id: 6,
+            title: 'Ignis Motors - Smart Car Showroom',
+            description: 'A premium smart car showroom web application with car listings, EMI calculator, test-drive booking, wishlists, reviews, and a full-featured 16-section admin panel with real-time CRUD, analytics, and role-based access.',
+            tags: ['React.js', 'Redux Toolkit', 'Vite', 'Firebase', 'Framer Motion'],
+            // image: '/projects/ignis-motors.jpg',
+            link: '',
+            github: 'https://github.com/ahtishamabbasi1468-pixel/Showroom'
         }
+
     ];
 
     const handleImgError = (e) => {
@@ -63,7 +73,7 @@ const Projects = () => {
             <div className="projects-grid">
                 {projects.map((project) => (
                     <div key={project.id} className="project-card glass-card">
-                        <div className="project-image-wrapper">
+                        {/* <div className="project-image-wrapper">
                             <img
                                 src={project.image}
                                 alt={project.title}
@@ -75,7 +85,7 @@ const Projects = () => {
                                 <ImageOff size={28} />
                                 <span>Screenshot coming soon</span>
                             </div>
-                        </div>
+                        </div> */}
 
                         <div className="project-content">
                             <h3 className="project-title">{project.title}</h3>

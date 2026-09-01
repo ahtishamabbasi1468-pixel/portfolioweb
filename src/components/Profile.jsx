@@ -30,7 +30,7 @@ const Profile = () => {
                     <a href="#contact" className="social-btn primary">
                         <Mail size={20} /> Contact Me
                     </a>
-                    <a href="/resume.pdf" download="Ahtisham_Razzaq_Resume.pdf" className="social-btn secondary">
+                    <a href="/ahtisham_Razzaq.pdf" download="Ahtisham_Razzaq_Resume.pdf" className="social-btn secondary">
                         <Download size={20} /> Download Resume
                     </a>
                     <a href="https://github.com/ahtishamabbasi1468-pixel" className="social-icon" target="_blank" rel="noreferrer">
