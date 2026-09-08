@@ -271,3 +271,30 @@
         justify-content: center;
     }
 }
+/* ══════════════════════════════════════════
+   Premium CTA banner above the contact form
+   ══════════════════════════════════════════ */
+
+.contact-cta {
+    text-align: center;
+    max-width: 640px;
+    margin: 0 auto 4rem;
+}
+
+.contact-cta-title {
+    font-size: 2.2rem;
+    margin-bottom: 0.6rem;
+}
+
+.contact-cta-subtitle {
+    font-size: 1.05rem;
+    margin-bottom: 2rem;
+}
+
+.contact-cta-actions {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+}

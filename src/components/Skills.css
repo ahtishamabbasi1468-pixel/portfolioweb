@@ -42,3 +42,42 @@
     background: rgba(6, 182, 212, 0.15);
     transform: translateY(-2px);
 }
+/* ══════════════════════════════════════════
+   Full Stack hub visual above the skill grid
+   ══════════════════════════════════════════ */
+
+.fullstack-hub {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+    position: relative;
+}
+
+.fullstack-hub-core {
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 800;
+    font-size: 1.1rem;
+    letter-spacing: 1px;
+    position: relative;
+    z-index: 2;
+    animation: pulse-glow 4s ease-in-out infinite;
+}
+
+.fullstack-hub-lines {
+    position: absolute;
+    inset: 0;
+    display: none;
+}
+
+@media (max-width: 640px) {
+    .fullstack-hub-core {
+        width: 120px;
+        height: 120px;
+        font-size: 0.9rem;
+    }
+}

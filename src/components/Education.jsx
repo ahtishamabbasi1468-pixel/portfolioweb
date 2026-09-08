@@ -1,32 +1,34 @@
 import React from 'react';
-import { GraduationCap } from 'lucide-react';
+import { motion } from 'framer-motion';
 
 const Education = () => {
     return (
-        <section className="education-section container" id="education" style={{ paddingTop: '6rem' }}>
-            <h2 className="section-title gradient-text">Education</h2>
-
-            <div className="timeline">
-                <div className="timeline-item glass-card animate-fade-in">
-                    <div className="timeline-icon" style={{ borderColor: 'var(--accent-secondary)' }}>
-                        <GraduationCap size={20} />
+        <section className="py-16 px-6 md:px-12 lg:px-20 bg-cream text-obsidian relative border-b border-warm-gold/30" id="education">
+            <div className="max-w-[1300px] mx-auto">
+                <motion.div
+                    className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start pt-4 border-t border-warm-gold/20"
+                    initial={{ opacity: 0, y: 16 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, amount: 0.3 }}
+                    transition={{ duration: 0.5 }}
+                >
+                    <div className="lg:col-span-4 space-y-1">
+                        <span className="font-mono text-xs text-warm-gold tracking-eyebrow uppercase font-semibold">Education</span>
+                        <span className="font-mono text-xs px-3 py-1 mt-2 rounded bg-cream-tint border border-warm-gold/30 text-warm-gold font-semibold inline-block">
+                            Sep 2022 — Jul 2026
+                        </span>
                     </div>
-                    <div className="timeline-content">
-                        <h3 className="job-title">Bachelor of Science in Computer Science</h3>
-                        <h4 className="company">Arid Agriculture University, Rawalpindi, Pakistan</h4>
-                        <span className="duration text-muted">Sep 2022 – Jul 2026</span>
-
-                        <div style={{ marginTop: '1.5rem' }}>
-                            <h5 style={{ color: 'var(--accent-primary)', marginBottom: '0.5rem', fontSize: '1rem' }}>Relevant Coursework:</h5>
-                            <div className="skill-tags">
-                                <span className="skill-tag">Data Structures & Algorithms</span>
-                                <span className="skill-tag">Object-Oriented Programming</span>
-                                <span className="skill-tag">Database Systems</span>
-                                <span className="skill-tag">Software Engineering</span>
-                            </div>
+                    <div className="lg:col-span-8 space-y-2">
+                        <h4 className="font-serif text-2xl text-obsidian font-medium">Bachelor of Science in Computer Science</h4>
+                        <span className="font-mono text-xs text-muted block">Arid Agriculture University, Rawalpindi, Pakistan</span>
+                        <div className="flex flex-wrap gap-2 pt-2 font-mono text-[11px] text-obsidian">
+                            <span className="px-2.5 py-1 bg-white rounded border border-warm-gold/30">Data Structures &amp; Algorithms</span>
+                            <span className="px-2.5 py-1 bg-white rounded border border-warm-gold/30">OOP</span>
+                            <span className="px-2.5 py-1 bg-white rounded border border-warm-gold/30">Database Systems</span>
+                            <span className="px-2.5 py-1 bg-white rounded border border-warm-gold/30">Software Engineering</span>
                         </div>
                     </div>
-                </div>
+                </motion.div>
             </div>
         </section>
     );

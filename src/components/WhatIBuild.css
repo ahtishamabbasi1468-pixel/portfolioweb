@@ -1,0 +1,55 @@
+.what-i-build-section {
+    padding-top: 5rem;
+    padding-bottom: 3rem;
+}
+
+.wib-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.6rem;
+}
+
+.wib-card {
+    padding: 1.8rem;
+    text-align: left;
+    transition: transform 0.35s cubic-bezier(0.165, 0.84, 0.44, 1), box-shadow 0.35s ease, border-color 0.35s ease;
+}
+
+.wib-card:hover {
+    border-color: rgba(59, 130, 246, 0.35);
+}
+
+.wib-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    border-radius: 1rem;
+    margin-bottom: 1rem;
+    background: linear-gradient(135deg, rgba(59, 130, 246, 0.2), rgba(139, 92, 246, 0.2));
+    color: var(--accent-secondary);
+}
+
+.wib-card h3 {
+    font-size: 1.05rem;
+    margin-bottom: 0.5rem;
+    color: var(--text-main);
+}
+
+.wib-card p {
+    font-size: 0.88rem;
+    line-height: 1.6;
+}
+
+@media (max-width: 900px) {
+    .wib-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 560px) {
+    .wib-grid {
+        grid-template-columns: 1fr;
+    }
+}

@@ -1,0 +1,69 @@
+.about-section {
+    padding-top: 5rem;
+    padding-bottom: 3rem;
+}
+
+.about-card {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 2.6rem;
+}
+
+.about-text {
+    font-size: 1.08rem;
+    line-height: 1.85;
+    color: var(--text-muted);
+    margin-bottom: 1.2rem;
+}
+
+.about-text strong {
+    color: var(--text-main);
+}
+
+.about-highlights {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.4rem;
+    margin-top: 2rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--border-color);
+}
+
+.about-highlight {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.9rem;
+}
+
+.about-highlight h4 {
+    font-size: 0.98rem;
+    margin-bottom: 0.25rem;
+    color: var(--text-main);
+}
+
+.about-highlight p {
+    font-size: 0.85rem;
+    line-height: 1.5;
+}
+
+.about-highlight-icon {
+    flex-shrink: 0;
+    width: 42px;
+    height: 42px;
+    border-radius: 0.8rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, rgba(59, 130, 246, 0.18), rgba(139, 92, 246, 0.18));
+    color: var(--accent-secondary);
+}
+
+@media (max-width: 768px) {
+    .about-highlights {
+        grid-template-columns: 1fr;
+    }
+
+    .about-card {
+        padding: 1.8rem;
+    }
+}

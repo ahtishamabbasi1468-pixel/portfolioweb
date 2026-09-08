@@ -206,16 +206,20 @@
 .project-image-wrapper {
     position: relative;
     width: 100%;
-    height: 180px;
+    height: 200px;
     overflow: hidden;
     background: linear-gradient(135deg, rgba(139, 92, 246, 0.15), rgba(6, 182, 212, 0.15));
     flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .project-image {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: contain;
+    object-position: center;
     display: block;
     transition: transform 0.45s ease;
 }
@@ -296,4 +300,119 @@
 
 .icon-link.disabled:hover {
     transform: none;
+}
+/* ══════════════════════════════════════════
+   Redesign additions — details button + case
+   study modal
+   ══════════════════════════════════════════ */
+
+.project-links {
+    flex-wrap: wrap;
+}
+
+.details-btn {
+    background: transparent;
+    border: 1px dashed var(--border-color);
+    font-family: inherit;
+}
+
+.details-btn:hover {
+    border-color: var(--accent-secondary);
+    border-style: solid;
+}
+
+.case-study-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.65);
+    backdrop-filter: blur(6px);
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem 1rem;
+}
+
+.case-study-modal {
+    position: relative;
+    max-width: 640px;
+    width: 100%;
+    max-height: 85vh;
+    overflow-y: auto;
+    padding: 2.2rem;
+    background: var(--glass-bg);
+}
+
+.case-study-close {
+    position: absolute;
+    top: 1.2rem;
+    right: 1.2rem;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--bg-card-hover);
+    border: 1px solid var(--border-color);
+    color: var(--text-main);
+    cursor: pointer;
+}
+
+.case-study-image {
+    width: 100%;
+    height: 200px;
+    border-radius: 0.8rem;
+    overflow: hidden;
+    background: linear-gradient(135deg, rgba(59, 130, 246, 0.15), rgba(6, 182, 212, 0.15));
+    margin-bottom: 1.4rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.case-study-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.case-study-title {
+    font-size: 1.4rem;
+    margin-bottom: 1.4rem;
+}
+
+.case-study-section {
+    margin-bottom: 1.3rem;
+}
+
+.case-study-section h4 {
+    font-size: 0.95rem;
+    color: var(--text-main);
+    margin-bottom: 0.4rem;
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+}
+
+.case-study-section p {
+    font-size: 0.92rem;
+    line-height: 1.6;
+}
+
+.case-study-section ul {
+    padding-left: 1.2rem;
+    color: var(--text-muted);
+    font-size: 0.92rem;
+    line-height: 1.7;
+}
+
+.case-study-architecture {
+    font-family: 'Courier New', monospace;
+    font-size: 0.85rem;
+}
+
+@media (max-width: 640px) {
+    .case-study-modal {
+        padding: 1.5rem;
+    }
 }

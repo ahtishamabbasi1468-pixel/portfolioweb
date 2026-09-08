@@ -1,0 +1,70 @@
+.ambient-bg {
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    overflow: hidden;
+    pointer-events: none;
+}
+
+.ambient-blob {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(90px);
+    opacity: 0.28;
+    animation: blobFloat 22s ease-in-out infinite;
+}
+
+.ambient-blob-1 {
+    width: 420px;
+    height: 420px;
+    top: -10%;
+    left: -8%;
+    background: var(--accent-secondary, #06b6d4);
+}
+
+.ambient-blob-2 {
+    width: 480px;
+    height: 480px;
+    top: 30%;
+    right: -12%;
+    background: var(--accent-primary, #8b5cf6);
+    animation-duration: 26s;
+    animation-delay: -6s;
+}
+
+.ambient-blob-3 {
+    width: 360px;
+    height: 360px;
+    bottom: -12%;
+    left: 25%;
+    background: #3b82f6;
+    animation-duration: 30s;
+    animation-delay: -12s;
+}
+
+.ambient-grid {
+    position: absolute;
+    inset: 0;
+    background-image:
+        linear-gradient(to right, var(--border-color) 1px, transparent 1px),
+        linear-gradient(to bottom, var(--border-color) 1px, transparent 1px);
+    background-size: 64px 64px;
+    opacity: 0.15;
+    mask-image: radial-gradient(ellipse at center, black 0%, transparent 70%);
+}
+
+@media (max-width: 768px) {
+    .ambient-blob {
+        filter: blur(60px);
+        opacity: 0.18;
+    }
+    .ambient-grid {
+        display: none;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .ambient-blob {
+        animation: none;
+    }
+}
