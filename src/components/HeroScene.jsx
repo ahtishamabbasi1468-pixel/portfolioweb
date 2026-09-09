@@ -1,6 +1,9 @@
-import React, { Suspense, useMemo, useRef } from 'react';
+import React, { Suspense, useEffect, useMemo, useRef } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
-import { Float, RoundedBox, Icosahedron, Torus, Octahedron } from '@react-three/drei';
+import { Float, RoundedBox, Icosahedron, Torus, Octahedron, useTexture } from '@react-three/drei';
+
+// 👇 Tweak this if you want the whole laptop bigger/smaller (zoom)
+const SCENE_SCALE = 1.15;
 
 /**
  * Central "developer workspace" token — a glowing rounded panel that stands
@@ -9,6 +12,43 @@ import { Float, RoundedBox, Icosahedron, Torus, Octahedron } from '@react-three/
  */
 const WorkspaceCore = () => {
     const group = useRef();
+
+    // Profile photo shown on the laptop "screen" face
+    const photoTexture = useTexture('/me.jpg');
+
+    // 👇 Bezel (outer laptop body) size — made bigger to grow the whole screen area
+    const BEZEL_WIDTH = 2.9;
+    const BEZEL_HEIGHT = 1.78;
+
+    // 👇 Screen (photo) size — kept close to the bezel size for a thinner border
+    const SCREEN_WIDTH = 2.74;
+    const SCREEN_HEIGHT = 1.64;
+
+    // 0 = show bottom of photo, 1 = show top of photo, 0.5 = perfectly centered
+    const FOCUS_Y = 1;
+
+    // Crop the photo like CSS `object-fit: cover` so it never stretches/distorts,
+    // biased toward the top (face) instead of the exact center
+    useEffect(() => {
+        if (!photoTexture?.image) return;
+        const imgAspect = photoTexture.image.width / photoTexture.image.height;
+        const screenAspect = SCREEN_WIDTH / SCREEN_HEIGHT;
+
+        if (imgAspect > screenAspect) {
+            // image is wider than the screen -> crop left/right
+            const scale = screenAspect / imgAspect;
+            photoTexture.repeat.set(scale, 1);
+            photoTexture.offset.set((1 - scale) / 2, 0);
+        } else {
+            // image is taller than the screen -> crop top/bottom, biased toward the face
+            const scale = imgAspect / screenAspect;
+            photoTexture.repeat.set(1, scale);
+            const maxOffset = 1 - scale;
+            photoTexture.offset.set(0, maxOffset * FOCUS_Y);
+        }
+        photoTexture.needsUpdate = true;
+    }, [photoTexture]);
+
     useFrame((state) => {
         if (!group.current) return;
         const t = state.clock.getElapsedTime();
@@ -17,14 +57,22 @@ const WorkspaceCore = () => {
     });
 
     return (
-        <group ref={group}>
-            <RoundedBox args={[2.6, 1.6, 0.14]} radius={0.09} smoothness={4}>
+        <group ref={group} scale={SCENE_SCALE}>
+            <RoundedBox args={[BEZEL_WIDTH, BEZEL_HEIGHT, 0.14]} radius={0.09} smoothness={4}>
                 <meshStandardMaterial color="#11110f" metalness={0.55} roughness={0.35} />
             </RoundedBox>
-            <RoundedBox args={[2.6, 1.6, 0.02]} radius={0.09} position={[0, 0, 0.09]}>
+            <RoundedBox args={[BEZEL_WIDTH, BEZEL_HEIGHT, 0.02]} radius={0.09} position={[0, 0, 0.09]}>
                 <meshStandardMaterial color="#0a0a09" metalness={0.2} roughness={0.6} />
             </RoundedBox>
-            <RoundedBox args={[2.85, 0.14, 1.7]} radius={0.07} position={[0, -0.92, 0.65]}>
+
+            {/* Profile photo displayed on the screen, cropped and biased toward the face */}
+            <mesh position={[0, 0, 0.101]}>
+                <planeGeometry args={[SCREEN_WIDTH, SCREEN_HEIGHT]} />
+                <meshBasicMaterial map={photoTexture} toneMapped={false} />
+            </mesh>
+
+            {/* Laptop base/keyboard deck — widened to match the bigger screen */}
+            <RoundedBox args={[BEZEL_WIDTH + 0.25, 0.14, 1.7]} radius={0.07} position={[0, -1.02, 0.65]}>
                 <meshStandardMaterial color="#11110f" metalness={0.55} roughness={0.35} />
             </RoundedBox>
         </group>

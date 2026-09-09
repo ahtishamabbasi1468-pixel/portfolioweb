@@ -44,7 +44,7 @@ const Profile = () => {
                     >
                         <span className="w-2 h-2 rounded-full bg-bright-gold animate-pulse-gold" />
                         <span className="font-mono text-xs text-bright-gold uppercase tracking-eyebrow font-medium">
-                            Full-Stack Web Developer
+                            Full-Stack Web Developer/ designer
                         </span>
                     </motion.div>
 

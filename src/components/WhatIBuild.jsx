@@ -27,6 +27,12 @@ const CAPABILITIES = [
         title: 'Database Design & Optimization',
         desc: 'Relational schema design in SQL Server with Entity Framework Core, plus Firebase/MongoDB for real-time and document-driven apps.',
     },
+    {
+        n: '04',
+        title: 'UI/UX & Design',
+        desc: 'Modern, responsive, and user-friendly interfaces with clean layouts and engaging visual experiences.',
+        tag: 'Design',
+    },
 ];
 
 const WhatIBuild = () => {

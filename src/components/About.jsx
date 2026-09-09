@@ -26,6 +26,12 @@ const LAYERS = [
         desc: 'SQL Server with Entity Framework Core, plus Firebase/Firestore for real-time apps.',
         tag: 'Data',
     },
+    {
+        n: '05',
+        title: 'UI/UX & Web Design',
+        desc: 'Modern, user-focused interfaces and responsive websites with clean layouts, strong visual hierarchy, intuitive navigation, and engaging user experiences.',
+        tag: 'Design',
+    },
 ];
 
 const About = () => {
@@ -54,7 +60,7 @@ const About = () => {
                             <span className="italic text-warm-gold font-normal">DIGITAL EXPERIENCES.</span>
                         </h2>
                         <p className="font-sans text-lg text-obsidian/80 leading-relaxed font-normal">
-                            I'm a Full-Stack Web Developer specializing in React, ASP.NET Core,
+                            I'm a Full-Stack Web Developer/ designer specializing in React, ASP.NET Core,
                             REST APIs and database-driven applications. I don't just build
                             screens — I put together the whole system, from the interface
                             down to the database.

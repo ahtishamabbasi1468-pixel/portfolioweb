@@ -36,7 +36,7 @@ const Navbar = () => {
                             Ahtisham Razzaq
                         </span>
                         <span className="font-mono text-[10px] text-warm-gold uppercase tracking-[0.22em] mt-1">
-                            Full-Stack Web Developer
+                            Full-Stack Web Developer/ Designer
                         </span>
                     </div>
                 </a>

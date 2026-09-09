@@ -23,7 +23,7 @@ const Footer = () => {
                         </div>
                         <div>
                             <span className="font-serif text-xl tracking-tight text-cream block font-medium">Ahtisham Razzaq</span>
-                            <span className="font-mono text-[11px] text-warm-gold uppercase tracking-widest">Full-Stack Web Developer</span>
+                            <span className="font-mono text-[11px] text-warm-gold uppercase tracking-widest">Full-Stack Web Developer/Designer</span>
                         </div>
                     </div>
 
